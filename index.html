@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GoodHabit — Roommate chore tracker</title>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">g</span>
+        <span class="brand-name">goodhabit</span>
+      </div>
+      <div class="nav-label">Workspace</div>
+      <nav aria-label="Workspace">
+        <a class="nav-item active" href="#today">
+          <span class="nav-icon" aria-hidden="true">▦</span>
+          Today's chores
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <div class="note-icon" aria-hidden="true">🌱</div>
+          <strong>Little things add up.</strong>
+          <p>A shared space feels better when everyone pitches in. Nice work, team.</p>
+        </div>
+        <div class="sidebar-foot">Your home, working together.</div>
+      </div>
+    </aside>
+
+    <main id="today">
+      <header class="topbar">
+        <p class="date-label">Today's date</p>
+        <div class="avatar-stack" id="avatar-stack" aria-label="Roommate initials"></div>
+      </header>
+
+      <div class="content">
+        <section class="welcome" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">The shared space</p>
+            <h1 id="page-title">A little more in sync.</h1>
+            <p class="subtitle">Today's plan, all in one place.</p>
+          </div>
+          <p class="today-pill">Today</p>
+        </section>
+
+        <section class="overview" aria-label="Daily progress">
+          <div class="progress-card">
+            <div class="ring" id="progress-ring" role="group" aria-label="Daily chore completion">
+              <span class="ring-content">
+                <span class="ring-value" id="progress-value">0%</span>
+                <span class="ring-caption">complete</span>
+              </span>
+            </div>
+            <progress id="progress-meter" value="0" max="100" aria-label="Chores completed percentage">0%</progress>
+            <div class="progress-copy">
+              <h2 id="progress-title">A fresh start</h2>
+              <p id="progress-description">Add roommates and chores to get today's list going.</p>
+            </div>
+          </div>
+          <div class="mini-stats">
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">✓</span>
+              <span>
+                <span class="stat-number" id="done-count">0</span>
+                <span class="stat-label">Chores done today</span>
+              </span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">✦</span>
+              <span>
+                <span class="stat-number" id="remaining-count">0</span>
+                <span class="stat-label">Still on the list</span>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Chores and roommates">
+          <section aria-labelledby="chores-heading">
+            <div class="section-heading">
+              <h2 id="chores-heading">Today's chores</h2>
+              <span class="section-meta" id="task-count">0 tasks</span>
+            </div>
+            <div class="panel">
+              <ul class="task-list" id="task-list">
+                <li class="empty-state">
+                  <span aria-hidden="true">🧹</span>
+                  <strong>Your list is looking wonderfully clear.</strong>
+                  <p>Add a chore below and assign it to a roommate.</p>
+                </li>
+              </ul>
+              <form class="add-task-form" id="task-form">
+                <label for="task-title">Chore name</label>
+                <input id="task-title" name="title" type="text" placeholder="Add a chore..." maxlength="100" required>
+                <label for="task-assignee">Assign to roommate</label>
+                <select id="task-assignee" name="assignee">
+                  <option value="">Unassigned</option>
+                </select>
+                <button class="primary-button" type="submit">Add chore</button>
+              </form>
+              <p class="notice" id="notice" role="status" aria-live="polite"></p>
+            </div>
+          </section>
+
+          <aside class="right-column" aria-label="Roommates and reminders">
+            <section class="panel" aria-labelledby="roommates-heading">
+              <div class="section-heading roommate-heading">
+                <h2 id="roommates-heading">Roommates</h2>
+                <span class="section-meta" id="roommate-count">0 people</span>
+              </div>
+              <ul class="roommate-list" id="roommate-list">
+                <li class="empty-state">
+                  <span aria-hidden="true">🏡</span>
+                  <strong>Who's in your household?</strong>
+                  <p>Add roommates with their phone numbers to assign chores and prepare reminders.</p>
+                </li>
+              </ul>
+              <form class="add-roommate-form" id="roommate-form">
+                <div class="form-pair">
+                  <label for="roommate-name">Roommate name</label>
+                  <input id="roommate-name" name="name" type="text" placeholder="Name" maxlength="60" autocomplete="name" required>
+                  <label for="roommate-phone">Roommate phone number</label>
+                  <input id="roommate-phone" name="phone" type="tel" placeholder="Phone number" maxlength="25" autocomplete="tel" required>
+                </div>
+                <button class="primary-button" type="submit">Add roommate</button>
+              </form>
+            </section>
+
+            <section class="reminder-note" aria-labelledby="reminder-heading">
+              <h2 id="reminder-heading"><span aria-hidden="true">✉</span> Friendly reminders</h2>
+              <p>Use a chore's reminder action to prepare a text for its assigned roommate. Review and send the message in your messaging app.</p>
+            </section>
+          </aside>
+        </section>
+
+        <section class="panel" aria-labelledby="trade-title">
+          <h2 id="trade-title">Trade or swap a chore</h2>
+          <p>Choose the chore and roommates involved in the trade.</p>
+          <form class="dialog-inner" id="trade-form">
+            <label for="trade-chore">Your chore</label>
+            <select id="trade-chore" name="chore">
+              <option value="">Choose a chore</option>
+            </select>
+            <label for="trade-roommate">Trade with</label>
+            <select id="trade-roommate" name="roommate" required>
+              <option value="">Choose a roommate</option>
+            </select>
+            <label for="trade-partner-chore">Their chore to swap (optional)</label>
+            <select id="trade-partner-chore" name="partner-chore">
+              <option value="">Hand off your chore instead</option>
+            </select>
+            <div class="dialog-actions">
+              <button class="secondary-button" id="cancel-trade" type="reset">Clear trade choices</button>
+              <button class="primary-button" type="submit">Confirm trade</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <template id="task-template">
+    <li class="task">
+      <input class="task-check" type="checkbox" aria-label="Mark chore complete">
+      <div>
+        <span class="task-title">Chore name</span>
+        <span class="task-assignee">
+          <span class="assignee-dot" aria-hidden="true"></span>
+          <span>Roommate or unassigned</span>
+        </span>
+      </div>
+      <div class="task-actions">
+        <button class="icon-button reminder" type="button" aria-label="Prepare a text reminder">✉</button>
+        <button class="icon-button trade" type="button" aria-label="Trade or reassign chore">⇄</button>
+        <button class="icon-button delete" type="button" aria-label="Remove chore">×</button>
+      </div>
+    </li>
+  </template>
+
+  <template id="roommate-template">
+    <li class="roommate-row">
+      <span class="roommate-initial" aria-hidden="true">R</span>
+      <span class="roommate-info">
+        <span class="roommate-name">Roommate name</span>
+        <span class="roommate-phone">Phone number</span>
+      </span>
+      <button class="roommate-remove" type="button" aria-label="Remove roommate">×</button>
+    </li>
+  </template>
+</body>
+</html>
