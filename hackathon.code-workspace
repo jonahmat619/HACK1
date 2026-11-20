@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "hackathon",
+			"path": ".."
+		},
+		{
+			"name": "HACK1",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "hackathon"
+	}
+}
