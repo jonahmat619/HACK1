@@ -5,7 +5,7 @@ This project is an **HTML-only scaffold** for a daily roommate chore tracker. `i
 Open `index.html` in a browser to inspect the markup. The forms and buttons are not wired up: adding and removing entries, checking chores off, updating progress, trading tasks, saving data, and preparing reminders will require JavaScript. Styling the progress circle and page layout will require CSS. The SMS reminder area is a placeholder; this HTML does not send or prepare messages.
 
 ## HTML element legend
-
+test
 | Element | Purpose in this page |
 | --- | --- |
 | `a` | Workspace navigation link to today's tracker. |
